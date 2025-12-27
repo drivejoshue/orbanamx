@@ -28,6 +28,9 @@
         Operación en tiempo real: asignación por olas, monitoreo de conductores, App de conductor,
         seguridad, transparencia y reportes listos para crecer.
       </p>
+       <div class="mt-6">
+                                <a href="contact-one.html" class="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-gray-50 hover:bg-gray-200 dark:bg-slate-900 dark:hover:bg-gray-700 hover:border-gray-100 dark:border-gray-800 dark:hover:border-gray-700 rounded-md me-2 mt-2"><i class="uil uil-location-point"></i> Probar TRIAL 14 dias Gratis</a>
+                            </div>
 
       <div class="overflow-hidden mt-10 wow animate__animated animate__zoomIn"
            data-wow-delay="0.25s" data-wow-duration="0.9s" data-wow-offset="80">
@@ -38,6 +41,7 @@
           loading="lazy"
         >
       </div>
+
 
       {{-- Detalles animados (CSS) --}}
       <div class="overflow-hidden after:content-[''] after:absolute after:h-14 after:w-14 after:bg-white/20 after:-top-[40px] after:start-[30%] after:rounded-lg after:animate-[spin_10s_linear_infinite]"></div>
