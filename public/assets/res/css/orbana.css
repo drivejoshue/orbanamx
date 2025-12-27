@@ -1,0 +1,587 @@
+/* assets/css/orbana.css */
+/* ==========================================================
+   Orbana Theme Overrides (NO editar main.css)
+   Objetivo: eliminar TODO amarillo del template y usar
+   gama Orbana (azules: Orbana Blue / SteelBlue / RoyalBlue)
+   ========================================================== */
+
+:root{
+  /* Base */
+  --background-color: #ffffff;
+  --surface-color: #ffffff;
+
+  --default-color: #3a3a3a;
+  --heading-color: #0f172a;
+
+  /* Brand (Azules Orbana) */
+  --accent-color: #1E64FF;          /* Orbana Blue (principal) */
+  --orbana-primary: #1E64FF;        /* alias */
+  --orbana-royal: #2563EB;          /* royal blue / hover fuerte */
+  --orbana-steel: #4682B4;          /* steelblue (sub-acentos) */
+  --orbana-navy:  #0B1220;          /* navy/negro Orbana */
+
+  /* Contraste sobre accent (iconos/texto sobre botón) */
+  --contrast-color: #ffffff;
+
+  /* Nav */
+  --nav-color: rgba(255,255,255,.92);
+  --nav-hover-color: var(--accent-color);
+  --nav-dropdown-hover-color: var(--accent-color);
+}
+
+/* Dark sections: hero/footer (mantén acento azul, sin amarillo) */
+.dark-background{
+  --background-color: #060B13;
+  --default-color: #E5E7EB;
+  --heading-color: #FFFFFF;
+  --surface-color: #0B1220;
+  --contrast-color: #FFFFFF;
+}
+
+/* ----------------------------------------------------------
+   1) Botones y CTAs
+   ---------------------------------------------------------- */
+.btn-getstarted,
+.cta-btn,
+.php-email-form button[type="submit"]{
+  background: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+.btn-getstarted:hover,
+.cta-btn:hover,
+.php-email-form button[type="submit"]:hover{
+  background: color-mix(in srgb, var(--accent-color), #000 14%) !important;
+  border-color: color-mix(in srgb, var(--accent-color), #000 14%) !important;
+  color: #fff !important;
+}
+
+/* CTA en Call To Action (el template ponía amarillo en hover) */
+.call-to-action .cta-btn:hover{
+  background: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+/* ----------------------------------------------------------
+   2) Links y navegación
+   ---------------------------------------------------------- */
+a{ color: var(--accent-color); }
+a:hover{ color: color-mix(in srgb, var(--accent-color), transparent 15%) !important; }
+
+/* Desktop: hover/active ya usa --nav-hover-color (aquí reforzamos) */
+.navmenu li:hover > a,
+.navmenu .active,
+.navmenu .active:focus{
+  color: var(--accent-color) !important;
+}
+
+/* Mobile: los estados activos usan background del hover (quita amarillo) */
+@media (max-width: 1199px){
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus{
+    background-color: var(--nav-dropdown-hover-color) !important;
+    color: #fff !important;
+  }
+  .navmenu a i,
+  .navmenu a:focus i{
+    background-color: color-mix(in srgb, var(--accent-color), #fff 90%) !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   3) Hero (líneas, spans, hovers)
+   ---------------------------------------------------------- */
+/* span amarillo del título */
+.hero h2 span{ color: var(--accent-color) !important; }
+
+/* iconos del hero (antes amarillos) */
+.hero .icon-box i{ color: var(--accent-color) !important; }
+
+/* bordes/hover del hero */
+.hero .icon-box:hover{ border-color: var(--accent-color) !important; }
+.hero .icon-box:hover h3 a{ color: var(--accent-color) !important; }
+
+/* ----------------------------------------------------------
+   4) Iconos, checks (palomillas) y acentos comunes
+   ---------------------------------------------------------- */
+.icon-box i,
+.services .service-item .icon,
+.services .service-item .icon i,
+.features .features-item i,
+.stats .stats-item i,
+.contact .info-item i,
+.service-details .services-list a i,
+.service-details .download-catalog a i,
+.about .content ul i,
+.footer .footer-links ul i{
+  color: var(--accent-color) !important;
+}
+
+/* Cuadro del icono en Services (fondo azul + icono blanco) */
+.services .service-item .icon,
+.contact .info-item i{
+  background: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+/* ----------------------------------------------------------
+   5) Líneas decorativas (section title / separadores)
+   ---------------------------------------------------------- */
+.section-title h2::after{
+  background: var(--accent-color) !important;
+}
+
+/* ----------------------------------------------------------
+   6) Componentes con amarillo hardcodeado en el template
+   ---------------------------------------------------------- */
+/* Estrellas de testimonios (venían #ffc107) */
+.testimonials .testimonial-item .stars i{
+  color: var(--accent-color) !important;
+}
+
+/* Preloader (borde alternado amarillo) */
+#preloader:before{
+  border-color: var(--accent-color) transparent var(--accent-color) transparent !important;
+}
+
+/* Scroll-top (background amarillo) */
+.scroll-top{
+  background-color: var(--accent-color) !important;
+}
+.scroll-top:hover{
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%) !important;
+}
+
+/* Footer: social hover (background amarillo) */
+.footer .social-links a:hover{
+  background-color: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+/* Footer: links hover (color amarillo) */
+.footer .footer-links ul a:hover{
+  color: var(--accent-color) !important;
+}
+
+/* Newsletter submit (background amarillo) */
+.footer .footer-newsletter .newsletter-form input[type=submit]{
+  background: var(--accent-color) !important;
+  color: #fff !important;
+}
+.footer .footer-newsletter .newsletter-form input[type=submit]:hover{
+  background: color-mix(in srgb, var(--accent-color), transparent 20%) !important;
+}
+
+/* Portfolio filters (hover/active background amarillo) */
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active{
+  background-color: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+/* Contact form focus (borde amarillo) */
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus{
+  border-color: var(--accent-color) !important;
+}
+
+/* Loading spinner del PHP email form (borde amarillo) */
+.php-email-form .loading:before{
+  border-color: var(--accent-color) !important;
+  border-top-color: var(--surface-color) !important;
+}
+
+/* ----------------------------------------------------------
+   7) “SteelBlue sobre blanco” (acentos suaves en secciones claras)
+   ---------------------------------------------------------- */
+.section-title p{
+  /* el template pone heading-color; aquí damos un matiz Orbana sin perder legibilidad */
+  color: var(--heading-color);
+}
+.light-background .section-title p,
+section:not(.dark-background) .section-title h2{
+  color: color-mix(in srgb, var(--orbana-steel), #000 10%);
+}
+
+/* ----------------------------------------------------------
+   8) Cards y bordes sutiles (consistencia)
+   ---------------------------------------------------------- */
+.services .service-item,
+.hero .icon-box,
+.team .team-member,
+.portfolio .portfolio-info{
+  border: 1px solid rgba(15, 23, 42, .08);
+  border-radius: 14px;
+}
+
+.services .service-item .icon, .contact .info-item i {
+    background: #0d9cf0 !important;
+    color: #fff !important;
+}
+
+.services .service-item .icon i, .features .features-item i, .stats .stats-item i, .contact .info-item i, .service-details .services-list a i, .service-details .download-catalog a i, .about .content ul i, .footer .footer-links ul i {
+    color: #ffffff !important;
+}
+.contact .info-item i {
+    color: #ecf4f5 !important;
+}
+.php-email-form .sent-message {
+    display: none;
+    color: #ffffff;
+    background: #75c39e;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+.dark-background .services .service-item,
+.dark-background .hero .icon-box,
+.dark-background .team .team-member,
+.dark-background .portfolio .portfolio-info{
+  border-color: rgba(255,255,255,.10);
+}
+
+/* Logo: si el template usa span como “punto” de acento */
+.header .logo span,
+.footer .footer-about .logo span{
+  color: var(--accent-color) !important;
+}
+
+/* =========================================================
+   Orbana – UpScale-like cards + CTA strip
+   ========================================================= */
+:root{
+  --orb-blue: #1E64FF;
+  --orb-blue-2: #2563EB;
+  --orb-steel: #4682B4;
+  --orb-ink: #0f172a;
+
+  --orb-border: rgba(15,23,42,.10);
+  --orb-border-dark: rgba(255,255,255,.12);
+
+  --orb-shadow: 0 10px 30px rgba(15,23,42,.07);
+  --orb-radius: 16px;
+}
+
+/* Sección cards */
+.orbana-cards .section-title p{
+  color: color-mix(in srgb, var(--orb-steel), #000 10%);
+}
+
+.orb-card{
+  background: #fff;
+  border: 1px solid var(--orb-border);
+  border-radius: var(--orb-radius);
+  padding: 26px 26px 22px;
+  box-shadow: var(--orb-shadow);
+  height: 100%;
+}
+
+.dark-background .orb-card{
+  background: rgba(11,18,32,.65);
+  border-color: var(--orb-border-dark);
+  box-shadow: none;
+}
+
+.orb-card-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom: 12px;
+}
+
+.orb-icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--orb-blue), #fff 85%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+}
+
+.orb-icon i{
+  color: var(--orb-blue);
+  font-size: 20px;
+}
+
+.dark-background .orb-icon{
+  background: rgba(30,100,255,.18);
+}
+
+.dark-background .orb-icon i{
+  color: #fff;
+}
+
+.orb-title{
+  margin:0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--orb-ink);
+}
+
+.dark-background .orb-title{
+  color:#fff;
+}
+
+.orb-desc{
+  margin: 0 0 14px;
+  color: rgba(15,23,42,.70);
+  line-height: 1.6;
+}
+
+.dark-background .orb-desc{
+  color: rgba(255,255,255,.78);
+}
+
+.orb-checks{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+}
+
+.orb-checks li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color: rgba(15,23,42,.78);
+  font-size: 14px;
+}
+
+.dark-background .orb-checks li{
+  color: rgba(255,255,255,.80);
+}
+
+.orb-checks i{
+  color: var(--orb-blue);
+  margin-top: 2px;
+}
+
+.dark-background .orb-checks i{
+  color: #fff; /* check blanco en secciones oscuras */
+}
+
+/* CTA strip */
+.orbana-cta-strip{
+  background: #f6f9ff;
+  border-top: 1px solid rgba(30,100,255,.10);
+  border-bottom: 1px solid rgba(30,100,255,.10);
+}
+
+.orb-strip{
+  background: #fff;
+  border: 1px solid var(--orb-border);
+  border-radius: calc(var(--orb-radius) + 4px);
+  padding: 34px 34px;
+  box-shadow: var(--orb-shadow);
+}
+
+.orb-strip-title{
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  margin: 0 0 10px;
+  color: var(--orb-ink);
+}
+
+.orb-strip-desc{
+  color: rgba(15,23,42,.72);
+  margin: 0 0 18px;
+  line-height: 1.65;
+}
+
+.orb-strip-checks{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap:10px;
+  max-width: 520px;
+}
+
+.orb-strip-checks li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color: rgba(15,23,42,.80);
+  font-size: 14px;
+}
+
+.orb-strip-checks i{
+  color: var(--orb-blue);
+  margin-top: 2px;
+}
+
+/* Botones */
+.btn-orb-primary{
+  background: var(--orb-blue);
+  border: 1px solid var(--orb-blue);
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.btn-orb-primary:hover{
+  background: color-mix(in srgb, var(--orb-blue), #000 14%);
+  border-color: color-mix(in srgb, var(--orb-blue), #000 14%);
+  color:#fff;
+}
+
+.btn-orb-outline{
+  background: #fff;
+  border: 1px solid rgba(30,100,255,.35);
+  color: var(--orb-blue);
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.btn-orb-outline:hover{
+  background: rgba(30,100,255,.06);
+  color: var(--orb-blue);
+}
+
+/* Panel derecha de CTA */
+.orb-strip-actions{
+  display:grid;
+  gap:12px;
+}
+
+.orb-strip-metrics{
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(15,23,42,.08);
+  display:grid;
+  gap:10px;
+}
+
+.orb-metric-kpi{
+  font-weight: 800;
+  color: var(--orb-blue);
+}
+
+.orb-metric-sub{
+  font-size: 13px;
+  color: rgba(15,23,42,.70);
+}
+
+/* Pricing tipo UpScale Orbana */
+.orbana-pricing .section-title h2{
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--orb-ink);
+}
+
+.pricing-card{
+  background: #fff;
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 16px;
+  padding: 30px 22px;
+  box-shadow: 0 12px 32px rgba(15,23,42,.08);
+  margin-top: 24px;
+}
+
+.pricing-header .pricing-title{
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--orb-ink);
+  margin-bottom: 12px;
+}
+
+.pricing-price {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--orb-blue);
+  margin-bottom: 14px;
+}
+
+.pricing-price .currency{
+  font-size: 28px;
+  vertical-align: super;
+  opacity: .85;
+}
+
+.pricing-price .period{
+  display: block;
+  font-size: 14px;
+  color: rgba(15,23,42,.70);
+  margin-top: 4px;
+}
+
+.pricing-features{
+  list-style:none;
+  padding: 0;
+  margin: 18px 0 22px;
+}
+
+.pricing-features li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 14px;
+  color: rgba(15,23,42,.78);
+  margin-bottom: 10px;
+}
+
+.pricing-features i{
+  color: var(--orb-blue);
+}
+
+.btn-orb-pricing{
+  background: var(--orb-blue);
+  border: 1px solid var(--orb-blue);
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.btn-orb-pricing:hover{
+  background: color-mix(in srgb, var(--orb-blue), #000 14%);
+  border-color: color-mix(in srgb, var(--orb-blue), #000 14%);
+}
+
+  /* Hero buttons: se ven bien sobre dark */
+  .orb-btn-primary{
+    border: 1px solid rgba(255,255,255,.18) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  .orb-btn-outline{
+    background: transparent !important;
+    border: 1px solid rgba(255,255,255,.55) !important;
+    color: #fff !important;
+  }
+  .orb-btn-outline:hover{
+    background: rgba(255,255,255,.10) !important;
+    border-color: rgba(255,255,255,.70) !important;
+  }
+  .orb-btn-outline-soft{
+    background: rgba(255,255,255,.08) !important;
+    border: 1px solid rgba(255,255,255,.22) !important;
+    color: #fff !important;
+  }
+  .orb-btn-outline-soft:hover{
+    background: rgba(255,255,255,.14) !important;
+    border-color: rgba(255,255,255,.30) !important;
+  }
+
+  /* Botones sobre blanco (sección Orbana Global/White Label y Pricing) */
+  .orb-btn-outline-dark{
+    background: transparent !important;
+    border: 1px solid rgba(15,23,42,.25) !important;
+    color: #0f172a !important;
+  }
+  .orb-btn-outline-dark:hover{
+    background: rgba(2,6,23,.04) !important;
+  }
+  .orb-btn-primary-dark{
+    color:#fff !important;
+  }
